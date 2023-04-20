@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const orderSchema = new Schema({
-  purchaseDate: {
+const fightsSchema = new Schema({
+  upcomingFights: {
     type: Date,
     default: Date.now
   },
-  products: [
+  fighter: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'stats'
     }
   ]
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const Fights = mongoose.model('Fights', fightsSchema);
 
-module.exports = Order;
+module.exports = Fights;

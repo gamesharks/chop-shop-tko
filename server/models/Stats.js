@@ -2,27 +2,32 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const statsSchema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true
   },
-  description: {
+  quickStats: {
     type: String
   },
   image: {
     type: String
   },
-  price: {
+  wins: {
     type: Number,
     required: true,
     min: 0.99
   },
-  quantity: {
+  losses: {
     type: Number,
-    min: 0,
-    default: 0
+    required: true,
+    min: 0.99
+  },
+  sigStrikes: {
+    type: Number,
+    required: true,
+    min: 0.99
   },
   category: {
     type: Schema.Types.ObjectId,
@@ -31,6 +36,6 @@ const productSchema = new Schema({
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Stats = mongoose.model('Stats', statsSchema);
 
-module.exports = Product;
+module.exports = Stats;
