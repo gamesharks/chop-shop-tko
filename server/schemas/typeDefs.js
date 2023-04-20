@@ -7,11 +7,16 @@ const typeDefs = gql`
   }
 
   type Stats {
+  type Stats {
     _id: ID
     name: String
     quickStats: String
+    quickStats: String
     image: String
     wins: Int
+    losses: Int
+    sigStrikes: Int
+    category: Category
   }
 
   type Fights {
@@ -41,11 +46,10 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    fighter(fight: ID, name: String): [Stats]
-    product(_id: ID!): Product
+    fighter(category: ID, name: String): [Stats]
+    stats(_id: ID!): Stats
     user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    fights(_id: ID!): Fights
   }
 
   type Mutation {
