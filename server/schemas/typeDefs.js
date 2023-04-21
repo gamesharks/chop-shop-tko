@@ -6,17 +6,23 @@ const typeDefs = gql`
     name: String
   }
 
-  type Stats {
-  type Stats {
+
+type Matchup{
+  fightDate
+  isActive
+  fighters: [Fighters]
+}
+
+
+
+  type Fighter {
     _id: ID
     name: String
-    quickStats: String
     quickStats: String
     image: String
     wins: Int
     losses: Int
     sigStrikes: Int
-    category: Category
   }
 
   type Fights {
@@ -24,7 +30,7 @@ const typeDefs = gql`
     upcomingFight: String
     image: String
     lineup: String
-    fighter: [Stats]
+    fighter: [Fighter]
   }
 
   type User {
@@ -32,11 +38,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    fights: [Fights]
-  }
-
-  type Checkout {
-    session: ID
+    fights: [Matchup]
   }
 
   type Auth {
@@ -45,18 +47,15 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    fighter(category: ID, name: String): [Stats]
-    stats(_id: ID!): Stats
+    matchups: [Matchup]
+    fighters: [Fighters]
+    fights:  [Matchup]
     user: User
-    fights(_id: ID!): Fights
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;

@@ -1,6 +1,6 @@
 const User = require('./User');
-const Stats = require('./Stats');
+const Fighters = require('./Fighters');
 const Category = require('./Category');
-const Fights = require('./Fights');
+const Matchup = require('./Matchup');
 
-module.exports = { User, Stats, Category, Fights };
+module.exports = { User, Fighters, Category, Matchup };
