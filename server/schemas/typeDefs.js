@@ -17,13 +17,14 @@ const typeDefs = gql`
     category: Category
   }
 
-  type Fights {
+  type Matchup {
     _id: ID
     upcomingFight: String
     image: String
     lineup: String
-    fighter: [Stats]
   }
+
+  type 
 
   type User {
     _id: ID
