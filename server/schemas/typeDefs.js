@@ -25,13 +25,15 @@ type Matchup{
     sigStrikes: Int
   }
 
-  type Fights {
+  type Matchup {
     _id: ID
     upcomingFight: String
     image: String
     lineup: String
     fighter: [Fighter]
   }
+
+  type 
 
   type User {
     _id: ID
