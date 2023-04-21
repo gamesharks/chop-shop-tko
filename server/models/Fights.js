@@ -7,6 +7,11 @@ const fightsSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  image: {
+    type: String,
+    
+
+  },
   fighter: [
     {
       type: Schema.Types.ObjectId,
