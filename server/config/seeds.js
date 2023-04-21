@@ -1,32 +1,37 @@
 const db = require('./connection');
-const { User, Category, Stats } = require('../models');
+const { User, Category, Matchup, Fighters } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
 
-  const categories = await Category.insertMany([
-    { name: 'Fighters' },
-  ]);
-
   console.log('categories seeded');
 
-  await Stats.deleteMany();
+  await Fighters.deleteMany();
 
-  const stats = await Stats.insertMany([
+  const fighters = await Fighters.insertMany([
     {
       name: 'Curtis Blaydes',
       quickStats:
         'W/L=17-3, D=0,',
       image: 'c-blaydes.png',
-      category: categories[0]._id,
       wins: 17,
       losses: 3,
       sigStrikes: 4
 
-    }
+    },
+    {
+      name: 'Sergei Pavlovich',
+      quickStats:
+        'W/L=17-3, D=0,',
+      image: 's-pavlovic.jpg',
+      wins: 17,
+      losses: 1,
+      sigStrikes: 7
+
+    },
   ]);
 
-  console.log('stats seeded');
+  console.log('fighters seeded');
 
   await User.deleteMany();
 
@@ -45,6 +50,18 @@ db.once('open', async () => {
   });
 
   console.log('users seeded');
+
+
+  await Matchup.deleteMany();
+
+  await Matchup.create({
+    fightName: 'UFC 288', 
+    fighters: [
+      "Curtis Blaydes", "Sergei Pavlovich"
+    ],
+    isActive: true
+  });
+
 
   process.exit();
 });

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const statsSchema = new Schema({
+const fighterSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -29,13 +29,8 @@ const statsSchema = new Schema({
     required: true,
     min: 0.99
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
 });
 
-const Stats = mongoose.model('Stats', statsSchema);
+const Fighters = mongoose.model('fighters', fighterSchema);
 
-module.exports = Stats;
+module.exports = Fighters;
