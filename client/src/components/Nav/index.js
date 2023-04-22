@@ -24,7 +24,7 @@ function Nav() {
     } else {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
+          <li className="mx-2">
             <Link to="/signup">
               Signup
             </Link>
@@ -43,10 +43,26 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <span role="img" aria-label="boxing glove">🥊</span>
+          Chop-Shop TKO
         </Link>
       </h1>
+
+      <ul className="flex-row px-1">
+        <li className="mx-1">
+        <Link to="/Matchups">
+          <span role="img" aria-label="">🤼 </span>
+          Matchups
+        </Link>
+        </li>
+        <li className="mx-1">
+        <Link to="/Fighterstats">
+          <span role="img" aria-label="">🥋 </span>
+          Fighter Stats
+        </Link>
+        </li>
+      
+      </ul>
 
       <nav>
         {showNavigation()}
