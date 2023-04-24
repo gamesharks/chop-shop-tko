@@ -29,6 +29,9 @@ const fighterSchema = new Schema({
     required: true,
     min: 0.99
   },
+  nickName: {
+    type: String
+  }
 });
 
 const Fighters = mongoose.model('fighters', fighterSchema);

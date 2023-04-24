@@ -7,23 +7,9 @@ const resolvers = {
     fighters: async () => {
       return await Fighters.find();
     },
-    matchups: async (parent, { name }) => {
-      const params = {};
-
-    //   if (category) {
-    //     params.category = category;
-    //   }
-
-    //   if (name) {
-    //     params.name = {
-    //       $regex: name
-    //     };
-    //   }
+    matchups: async () => {
 
       return await Matchup.find().populate('fighters');
-    },
-    fights: async (parent, { }) => {
-      return await Matchup.findById(_id).populate('fighters');
     },
     user: async (parent, args, context) => {
       if (context.user) {

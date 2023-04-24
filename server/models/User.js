@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-// const Order = require('./Fights');
+const Matchups = require('./Matchup');
 
 const userSchema = new Schema({
   firstName: {
@@ -28,7 +28,7 @@ const userSchema = new Schema({
   balance: {
     type: Number,
     defaultValue: 1000
-  }
+  },
 
 });
 
