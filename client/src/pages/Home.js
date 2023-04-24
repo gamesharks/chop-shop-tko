@@ -1,17 +1,28 @@
 import React from "react";
 import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
-// import Cart from "../components/Cart";
+import backgroundImage from '../assets/images/background01.jpg';
+import EditorsPicks from '../components/EditorsPicks';
 
 const Home = () => {
   return (
-    <div className="container">
-      <h1> this page will have background image with overlay of main event fight h2h view
-        along with editors picks that will be aligned to the side of background image to blend in, thru a component
+    <div className="" style={{
+       backgroundImage: `url(${backgroundImage})`,
+       backgroundSize: '',
+       width: '100vw',
+       height: '90vh',
+
+     }}>
+         
+      <h1 style={{color: 'white'}}> Editors Picks
       </h1>
-      {/* <CategoryMenu /> <-- saving this incase we need later for anything*/} 
-      {/* component for promo version of upcoming main event fight */}
-      {/* component for editors picks */}
+      
+      {/* component to render editors picks on left hand side of background image */}
+      <EditorsPicks />
+        
+      
+      {/* component or just image for promo version of upcoming main event fight */}
+      
     </div>
   );
 };
