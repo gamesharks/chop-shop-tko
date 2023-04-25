@@ -1,0 +1,15 @@
+.navActive {
+        background: linear-gradient(to right, red, black, red);
+        border-radius: 2px;
+        
+    
+}
+
+/* this is not removing the underline from the links, need to work on */
+/* li {
+    list-style-type: none; 
+    text-decoration: none;
+}
+     */
+
+    
