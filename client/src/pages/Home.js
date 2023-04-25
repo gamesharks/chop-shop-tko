@@ -1,6 +1,4 @@
 import React from "react";
-import ProductList from "../components/ProductList";
-import CategoryMenu from "../components/CategoryMenu";
 import backgroundImage from '../assets/images/background01.jpg';
 import EditorsPicks from '../components/EditorsPicks';
 

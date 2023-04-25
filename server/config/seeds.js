@@ -25,7 +25,7 @@ db.once('open', async () => {
     {
       name: 'Sergei Pavlovich',
       reach: '84"',
-      image: 's-pavlovic.jpg',
+      image: 's-pavlovich.jpg',
       wins: 18,
       winsByKO: 15,
       winsBySubmission: 0,
