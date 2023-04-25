@@ -38,7 +38,8 @@ db.once('open', async () => {
       wins: 22,
       losses: 3,
       sigStrikes: 20,
-      nickName: 'Funk Master'
+      nickName: 'Funk Master',
+      odds: -105
 
     },
     {
@@ -49,7 +50,8 @@ db.once('open', async () => {
       wins: 16,
       losses: 2,
       sigStrikes: 7,
-      nickName: 'Triple C'
+      nickName: 'Triple C',
+      odds: -115
 
     },
     {
@@ -60,7 +62,8 @@ db.once('open', async () => {
       wins: 22,
       losses: 3,
       sigStrikes: 7,
-      nickName: 'Remember the Name'
+      nickName: 'Remember the Name',
+      odds: +125
 
     },
     {
@@ -71,7 +74,8 @@ db.once('open', async () => {
       wins: 22,
       losses: 5,
       sigStrikes: 7,
-      nickName: 'Durinho'
+      nickName: 'Durinho',
+      odds: -145
 
     },
     {
@@ -81,7 +85,8 @@ db.once('open', async () => {
       image: 'jAndrade.jpg',
       wins: 17,
       losses: 1,
-      sigStrikes: 7
+      sigStrikes: 7,
+      odds: -185
 
     },
     {
@@ -91,7 +96,8 @@ db.once('open', async () => {
       image: 'yXiaonan.jpg',
       wins: 16,
       losses: 3,
-      sigStrikes: 7
+      sigStrikes: 7,
+      odds: +160
 
     }
   ]);
@@ -100,7 +106,7 @@ db.once('open', async () => {
 
   await User.deleteMany();
 
-  await User.create({
+  const user1 = await User.create({
     firstName: 'Pamela',
     lastName: 'Washington',
     email: 'pamela@testmail.com',
@@ -111,7 +117,8 @@ db.once('open', async () => {
     firstName: 'Elijah',
     lastName: 'Holt',
     email: 'eholt@testmail.com',
-    password: 'password12345'
+    password: 'password12345',
+    friends: [user1._id]
   });
 
   console.log('users seeded');
@@ -125,7 +132,8 @@ db.once('open', async () => {
     fighters: [
       fighters[0], fighters[1]
     ],
-    isActive: false
+    isActive: false,
+    odds: [fighters[0].odds,fighters[1].odds]
   },
   {
     fightDate: new Date('2023-05-06'),
@@ -133,7 +141,8 @@ db.once('open', async () => {
     fighters: [
        fighters[2],fighters[3]
     ],
-    isActive: true
+    isActive: true,
+    odds: [fighters[2].odds,fighters[3].odds]
   },
   {
     fightDate: new Date('2023-05-06'),
@@ -141,7 +150,8 @@ db.once('open', async () => {
     fighters: [
        fighters[4],fighters[5]
     ],
-    isActive: true
+    isActive: true,
+    odds: [fighters[4].odds,fighters[5].odds]
   },
   {
     fightDate: new Date('2023-05-06'),
@@ -149,7 +159,8 @@ db.once('open', async () => {
     fighters: [
        fighters[6],fighters[7]
     ],
-    isActive: true
+    isActive: true,
+    odds: [fighters[6].odds,fighters[7].odds]
   }
 ]);
 

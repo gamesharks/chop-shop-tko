@@ -20,6 +20,9 @@ const fightsSchema = new Schema({
       ref: 'fighters'
     }
   ],
+  odds: [{
+    type: Number
+  }]
 });
 
 const Matchup = mongoose.model('matchups', fightsSchema);

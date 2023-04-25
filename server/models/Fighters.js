@@ -31,6 +31,9 @@ const fighterSchema = new Schema({
   },
   nickName: {
     type: String
+  },
+  odds: {
+    type: Number
   }
 });
 
