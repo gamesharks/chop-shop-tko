@@ -1,21 +1,24 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
-    _id: ID
-    name: String
-  }
 
 
-type Matchup{
-  fightDate
-  isActive
+type Matchup {
+  _id: ID
+  fightName: String
+  fightDate: String
+  isActive: Boolean
   fighters: [Fighters]
 }
 
+type Betslip {
+  waiverAmount: Int
+  waiverDate: String
+  isActive: Boolean
+  User: [User]
+}
 
-
-  type Fighter {
+  type Fighters {
     _id: ID
     name: String
     quickStats: String
@@ -23,17 +26,7 @@ type Matchup{
     wins: Int
     losses: Int
     sigStrikes: Int
-  }
-
-  type Matchup {
-    _id: ID
-    upcomingFight: String
-    image: String
-    lineup: String
-    fighter: [Fighter]
-  }
-
-  type 
+  } 
 
   type User {
     _id: ID
@@ -41,6 +34,8 @@ type Matchup{
     lastName: String
     email: String
     fights: [Matchup]
+    betSlip: [Betslip]
+    friends: [Friends]
   }
 
   type Auth {
@@ -48,11 +43,16 @@ type Matchup{
     user: User
   }
 
+  type Friends {
+    _id: ID
+  }
+
   type Query {
     matchups: [Matchup]
     fighters: [Fighters]
     fights:  [Matchup]
     user: User
+    betslip: [Betslip]
   }
 
   type Mutation {

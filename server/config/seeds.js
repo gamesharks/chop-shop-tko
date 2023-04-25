@@ -2,40 +2,149 @@ const db = require('./connection');
 const { User, Category, Matchup, Fighters } = require('../models');
 
 db.once('open', async () => {
-  await Category.deleteMany();
-
-  console.log('categories seeded');
 
   await Fighters.deleteMany();
 
   const fighters = await Fighters.insertMany([
     {
       name: 'Curtis Blaydes',
-      quickStats:
-        'W/L=17-3, D=0,',
+      reach: '',
       image: 'c-blaydes.png',
       wins: 17,
+      winsByKO: 1,
+      winsBySubmission: 1,
       losses: 3,
-      sigStrikes: 4
+      nickName: 'Razor',
+      stance: '',
+      height: '',
+      weight: '',
+      age: ''
+
 
     },
     {
       name: 'Sergei Pavlovich',
-      quickStats:
-        'W/L=17-3, D=0,',
+      reach: '',
       image: 's-pavlovic.jpg',
       wins: 17,
+      winsByKO: 1,
+      winsBySubmission: 1,
       losses: 1,
-      sigStrikes: 7
+      draws: 1,
+      nickName: '',
+      stance: '',
+      height: '',
+      weight: '',
+      age: ''
 
     },
+    {
+      name: 'Aljamain Sterling',
+      reach: '71"',
+      image: 'Aljo.jpg',
+      wins: 22,
+      winsByKO: 3,
+      winsBySubmission: 8,
+      losses: 3,
+      draws: 0,
+      nickName: 'Funk Master',
+      odds: -105,
+      stance: 'Orthodox',
+      height: "5'7",
+      weight: 135,
+      age: 33
+
+    },
+    {
+      name: 'Henry Cejudo',
+      reach: '64"',
+      image: 'henryC.jpg',
+      wins: 16,
+      winsByKO: 8,
+      winsBySubmission: 0,
+      losses: 2,
+      draws: 0,
+      nickName: 'Triple C',
+      odds: -115,
+      stance: 'Orthodox',
+      height: "5'4",
+      weight: 135,
+      age: 36
+
+    },
+    {
+      name: 'Belal Muhammad',
+      reach: '72"',
+      image: 'bMuhammad.jpg',
+      wins: 22,
+      winsByKO: 5,
+      winsBySubmission: 1,
+      losses: 3,
+      draws: 0,
+      nickName: 'Remember the Name',
+      odds: +125,
+      stance: 'Orthodox',
+      height: "5'11",
+      weight: 170,
+      age: 34
+
+    },
+    {
+      name: 'Gilbert Burns',
+      reach: '71"',
+      image: 'gBurns.jpg',
+      wins: 22,
+      winsByKO: 6,
+      winsBySubmission: 9,
+      losses: 5,
+      draws: 0,
+      nickName: 'Durinho',
+      odds: -145,
+      stance: 'Orthodox',
+      height: "5'10",
+      weight: 170,
+      age: 36
+
+    },
+    {
+      name: 'Jessica Andrade',
+      reach: '62"',
+      image: 'jAndrade.jpg',
+      wins: 24,
+      winsByKO: 9,
+      winsBySubmission: 8,
+      losses: 10,
+      draws: 0,
+      odds: -185,
+      stance: 'Orthodox',
+      height: "5'1",
+      weight: 124,
+      age: 31
+
+    },
+    {
+      name: 'Yan Xiaonan',
+      reach: '63"',
+      image: 'yXiaonan.jpg',
+      wins: 16,
+      winsByKO: 7,
+      winsBySubmission: 0,
+      losses: 3,
+      draws: 0,
+      odds: +160,
+      stance: 'Orthodox',
+      height: "5'5",
+      weight: 115,
+      age: 33
+
+    }
   ]);
 
   console.log('fighters seeded');
 
   await User.deleteMany();
 
-  await User.create({
+  const user1 = await User.create({
     firstName: 'Pamela',
     lastName: 'Washington',
     email: 'pamela@testmail.com',
@@ -46,7 +155,8 @@ db.once('open', async () => {
     firstName: 'Elijah',
     lastName: 'Holt',
     email: 'eholt@testmail.com',
-    password: 'password12345'
+    password: 'password12345',
+    friends: [user1._id]
   });
 
   console.log('users seeded');
@@ -54,14 +164,44 @@ db.once('open', async () => {
 
   await Matchup.deleteMany();
 
-  await Matchup.create({
+  await Matchup.insertMany([{
+    fightDate: new Date('2023-04-22'),
+    fightName: 'UFC Fight Night: Pavlovich vs. Blaydes', 
+    fighters: [
+      fighters[0], fighters[1]
+    ],
+    isActive: false,
+    odds: [fighters[0].odds,fighters[1].odds]
+  },
+  {
+    fightDate: new Date('2023-05-06'),
     fightName: 'UFC 288', 
     fighters: [
-      "Curtis Blaydes", "Sergei Pavlovich"
+       fighters[2],fighters[3]
     ],
-    isActive: true
-  });
+    isActive: true,
+    odds: [fighters[2].odds,fighters[3].odds]
+  },
+  {
+    fightDate: new Date('2023-05-06'),
+    fightName: 'UFC 288', 
+    fighters: [
+       fighters[4],fighters[5]
+    ],
+    isActive: true,
+    odds: [fighters[4].odds,fighters[5].odds]
+  },
+  {
+    fightDate: new Date('2023-05-06'),
+    fightName: 'UFC 288', 
+    fighters: [
+       fighters[6],fighters[7]
+    ],
+    isActive: true,
+    odds: [fighters[6].odds,fighters[7].odds]
+  }
+]);
 
-
+console.log('matchups seeded')
   process.exit();
 });

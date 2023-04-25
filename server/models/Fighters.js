@@ -8,7 +8,7 @@ const fighterSchema = new Schema({
     required: true,
     trim: true
   },
-  quickStats: {
+  reach: {
     type: String
   },
   image: {
@@ -19,16 +19,35 @@ const fighterSchema = new Schema({
     required: true,
     min: 0.99
   },
+  winsByKO: {
+    type: Number
+  },
+  winsBySubmission: {
+    type: Number
+  },
   losses: {
     type: Number,
     required: true,
     min: 0.99
   },
-  sigStrikes: {
-    type: Number,
-    required: true,
-    min: 0.99
+  nickName: {
+    type: String
   },
+  odds: {
+    type: Number
+  },
+  stance: {
+    type: String
+  },
+  height: {
+    type: String
+  },
+  weight: {
+    type: Number
+  },
+  age: {
+    type: Number
+  }
 });
 
 const Fighters = mongoose.model('fighters', fighterSchema);

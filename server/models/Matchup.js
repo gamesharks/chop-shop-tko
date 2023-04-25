@@ -10,15 +10,21 @@ const fightsSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  isActive: {type: Boolean},
+  isActive: {
+    type: Boolean,
+    default: true
+  },
   fighters: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'fighter'
+      ref: 'fighters'
     }
-  ]
+  ],
+  odds: [{
+    type: Number
+  }]
 });
 
-const Matchup = mongoose.model('matchup', fightsSchema);
+const Matchup = mongoose.model('matchups', fightsSchema);
 
 module.exports = Matchup;

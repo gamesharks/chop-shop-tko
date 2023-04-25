@@ -48,17 +48,10 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
-      orders {
+      betslips {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        waiverDate
+        waiverAmount
       }
     }
   }
