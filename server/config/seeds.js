@@ -2,102 +2,140 @@ const db = require('./connection');
 const { User, Category, Matchup, Fighters } = require('../models');
 
 db.once('open', async () => {
-  await Category.deleteMany();
-
-  console.log('categories seeded');
 
   await Fighters.deleteMany();
 
   const fighters = await Fighters.insertMany([
     {
       name: 'Curtis Blaydes',
-      quickStats:
-        'W/L=17-3, D=0,',
+      reach: '',
       image: 'c-blaydes.png',
       wins: 17,
+      winsByKO: 1,
+      winsBySubmission: 1,
       losses: 3,
-      sigStrikes: 4,
-      nickName: 'Razor'
+      nickName: 'Razor',
+      stance: '',
+      height: '',
+      weight: '',
+      age: ''
+
 
     },
     {
       name: 'Sergei Pavlovich',
-      quickStats:
-        'W/L=17-3, D=0,',
+      reach: '',
       image: 's-pavlovic.jpg',
       wins: 17,
+      winsByKO: 1,
+      winsBySubmission: 1,
       losses: 1,
-      sigStrikes: 7
+      draws: 1,
+      nickName: '',
+      stance: '',
+      height: '',
+      weight: '',
+      age: ''
 
     },
     {
       name: 'Aljamain Sterling',
-      quickStats:
-        'W/L=22-3, D=0,',
+      reach: '71"',
       image: 'Aljo.jpg',
       wins: 22,
+      winsByKO: 3,
+      winsBySubmission: 8,
       losses: 3,
-      sigStrikes: 20,
+      draws: 0,
       nickName: 'Funk Master',
-      odds: -105
+      odds: -105,
+      stance: 'Orthodox',
+      height: "5'7",
+      weight: 135,
+      age: 33
 
     },
     {
       name: 'Henry Cejudo',
-      quickStats:
-        'W/L=16-2, D=0,',
+      reach: '64"',
       image: 'henryC.jpg',
       wins: 16,
+      winsByKO: 8,
+      winsBySubmission: 0,
       losses: 2,
-      sigStrikes: 7,
+      draws: 0,
       nickName: 'Triple C',
-      odds: -115
+      odds: -115,
+      stance: 'Orthodox',
+      height: "5'4",
+      weight: 135,
+      age: 36
 
     },
     {
       name: 'Belal Muhammad',
-      quickStats:
-        'W/L=22-3, D=0,',
+      reach: '72"',
       image: 'bMuhammad.jpg',
       wins: 22,
+      winsByKO: 5,
+      winsBySubmission: 1,
       losses: 3,
-      sigStrikes: 7,
+      draws: 0,
       nickName: 'Remember the Name',
-      odds: +125
+      odds: +125,
+      stance: 'Orthodox',
+      height: "5'11",
+      weight: 170,
+      age: 34
 
     },
     {
       name: 'Gilbert Burns',
-      quickStats:
-        'W/L=22-5, D=0,',
+      reach: '71"',
       image: 'gBurns.jpg',
       wins: 22,
+      winsByKO: 6,
+      winsBySubmission: 9,
       losses: 5,
-      sigStrikes: 7,
+      draws: 0,
       nickName: 'Durinho',
-      odds: -145
+      odds: -145,
+      stance: 'Orthodox',
+      height: "5'10",
+      weight: 170,
+      age: 36
 
     },
     {
       name: 'Jessica Andrade',
-      quickStats:
-        'W/L=17-3, D=0,',
+      reach: '62"',
       image: 'jAndrade.jpg',
-      wins: 17,
-      losses: 1,
-      sigStrikes: 7,
-      odds: -185
+      wins: 24,
+      winsByKO: 9,
+      winsBySubmission: 8,
+      losses: 10,
+      draws: 0,
+      odds: -185,
+      stance: 'Orthodox',
+      height: "5'1",
+      weight: 124,
+      age: 31
 
     },
     {
       name: 'Yan Xiaonan',
-      quickStats:
-        'W/L=16-3, D=0,',
+      reach: '63"',
       image: 'yXiaonan.jpg',
       wins: 16,
+      winsByKO: 7,
+      winsBySubmission: 0,
       losses: 3,
-      sigStrikes: 7,
-      odds: +160
+      draws: 0,
+      odds: +160,
+      stance: 'Orthodox',
+      height: "5'5",
+      weight: 115,
+      age: 33
 
     }
   ]);
@@ -164,6 +202,6 @@ db.once('open', async () => {
   }
 ]);
 
-
+console.log('matchups seeded')
   process.exit();
 });

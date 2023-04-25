@@ -8,7 +8,7 @@ const fighterSchema = new Schema({
     required: true,
     trim: true
   },
-  quickStats: {
+  reach: {
     type: String
   },
   image: {
@@ -19,12 +19,13 @@ const fighterSchema = new Schema({
     required: true,
     min: 0.99
   },
-  losses: {
-    type: Number,
-    required: true,
-    min: 0.99
+  winsByKO: {
+    type: Number
   },
-  sigStrikes: {
+  winsBySubmission: {
+    type: Number
+  },
+  losses: {
     type: Number,
     required: true,
     min: 0.99
@@ -33,6 +34,18 @@ const fighterSchema = new Schema({
     type: String
   },
   odds: {
+    type: Number
+  },
+  stance: {
+    type: String
+  },
+  height: {
+    type: String
+  },
+  weight: {
+    type: Number
+  },
+  age: {
     type: Number
   }
 });

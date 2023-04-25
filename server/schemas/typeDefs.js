@@ -35,11 +35,16 @@ type Betslip {
     email: String
     fights: [Matchup]
     betSlip: [Betslip]
+    friends: [Friends]
   }
 
   type Auth {
     token: ID
     user: User
+  }
+
+  type Friends {
+    _id: ID
   }
 
   type Query {
