@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Fighters, Matchup } = require('../models');
+const { User, Fighters, Matchup, Betslip } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -13,7 +13,7 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate();
+        const user = await User.findById(context.user._id).populate('betslips');
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -22,6 +22,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    betslip: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate('betslips');
+
+        return user.betslips.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {

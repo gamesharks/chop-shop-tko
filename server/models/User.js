@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Matchups = require('./Matchup');
+const Betslip = require('./BetSlip');
 
 const userSchema = new Schema({
   firstName: {
@@ -29,6 +29,10 @@ const userSchema = new Schema({
     type: Number,
     defaultValue: 1000
   },
+  betSlip: [{
+    type: Schema.Types.ObjectId,
+    ref:'betslips'
+  }]
 
 });
 

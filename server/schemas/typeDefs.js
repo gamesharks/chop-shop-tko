@@ -4,13 +4,19 @@ const typeDefs = gql`
 
 
 type Matchup {
+  _id: ID
   fightName: String
   fightDate: String
   isActive: Boolean
   fighters: [Fighters]
 }
 
-
+type Betslip {
+  waiverAmount: Int
+  waiverDate: String
+  isActive: Boolean
+  User: [User]
+}
 
   type Fighters {
     _id: ID
@@ -28,6 +34,7 @@ type Matchup {
     lastName: String
     email: String
     fights: [Matchup]
+    betSlip: [Betslip]
   }
 
   type Auth {
@@ -40,6 +47,7 @@ type Matchup {
     fighters: [Fighters]
     fights:  [Matchup]
     user: User
+    betslip: [Betslip]
   }
 
   type Mutation {
