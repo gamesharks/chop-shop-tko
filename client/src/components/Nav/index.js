@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import './nav.css';
 
 function Nav() {
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.pathname);
+
+  function handleTabClick(tab) {
+    setActiveTab(tab);
+  }
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
+          <li className={`mx-1 ${activeTab === "/orderHistory" ? "navActive" : ""}`}>
+            <Link to="/orderHistory" onClick={() => handleTabClick("/orderHistory")}>
               Order History
             </Link>
           </li>
@@ -24,13 +31,13 @@ function Nav() {
     } else {
       return (
         <ul className="flex-row">
-          <li className="mx-2">
-            <Link to="/signup">
+          <li className={`mx-2 ${activeTab === "/signup" ? "navActive" : ""}`}>
+            <Link to="/signup" onClick={() => handleTabClick("/signup")}>
               Signup
             </Link>
           </li>
-          <li className="mx-1">
-            <Link to="/login">
+          <li className={`mx-1 ${activeTab === "/login" ? "navActive" : ""}`}>
+            <Link to="/login" onClick={() => handleTabClick("/login")}>
               Login
             </Link>
           </li>
@@ -49,19 +56,18 @@ function Nav() {
       </h1>
 
       <ul className="flex-row px-1">
-        <li className="mx-1">
-        <Link to="/Matchups">
-          <span role="img" aria-label="">🤼 </span>
-          Matchups
-        </Link>
+        <li className={`mx-1 ${activeTab === "/Matchups" ? "navActive" : ""}`}>
+          <Link to="/Matchups" onClick={() => handleTabClick("/Matchups")}>
+            <span role="img" aria-label="">🤼 </span>
+            Matchups  
+          </Link>
         </li>
-        <li className="mx-1">
-        <Link to="/Fighterstats">
-          <span role="img" aria-label="">🥋 </span>
-          Fighter Stats
-        </Link>
+        <li className={`mx-1 ${activeTab === "/Fighterstats" ? "navActive" : ""}`}>
+          <Link to="/Fighterstats" onClick={() => handleTabClick("/Fighterstats")}>
+            <span role="img" aria-label="">🥋 </span>
+            Fighter Stats
+          </Link>
         </li>
-      
       </ul>
 
       <nav>
