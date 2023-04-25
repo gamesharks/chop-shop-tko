@@ -17,9 +17,9 @@ export const QUERY_STATS = gql`
   }
 `;
 
-export const QUERY_ALL_STATS = gql`
+export const QUERY_ALL_FIGHTERS = gql`
   {
-    stats {
+    fighters {
       _id
       name
       quickStats

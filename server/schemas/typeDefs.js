@@ -21,11 +21,18 @@ type Betslip {
   type Fighters {
     _id: ID
     name: String
-    quickStats: String
+    reach: String
     image: String
     wins: Int
     losses: Int
-    sigStrikes: Int
+    winsByKO: Int
+    winsBySubmission: Int
+    nickName: String
+    odds: Int
+    stance: String
+    height: String
+    weight: Int
+    age: Int
   } 
 
   type User {

@@ -8,34 +8,34 @@ db.once('open', async () => {
   const fighters = await Fighters.insertMany([
     {
       name: 'Curtis Blaydes',
-      reach: '',
+      reach: '80"',
       image: 'c-blaydes.png',
       wins: 17,
-      winsByKO: 1,
-      winsBySubmission: 1,
-      losses: 3,
+      winsByKO: 12,
+      winsBySubmission: 0,
+      losses: 4,
       nickName: 'Razor',
-      stance: '',
-      height: '',
-      weight: '',
-      age: ''
+      stance: 'Orthodox',
+      height: "6'4",
+      weight: 262,
+      age: 32
 
 
     },
     {
       name: 'Sergei Pavlovich',
-      reach: '',
+      reach: '84"',
       image: 's-pavlovic.jpg',
-      wins: 17,
-      winsByKO: 1,
-      winsBySubmission: 1,
+      wins: 18,
+      winsByKO: 15,
+      winsBySubmission: 0,
       losses: 1,
-      draws: 1,
+      draws: 0,
       nickName: '',
-      stance: '',
-      height: '',
-      weight: '',
-      age: ''
+      stance: 'Southpaw',
+      height: "6'3",
+      weight: 260,
+      age: 30
 
     },
     {
