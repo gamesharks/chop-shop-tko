@@ -22,14 +22,18 @@ export const QUERY_ALL_FIGHTERS = gql`
     fighters {
       _id
       name
-      quickStats
-      quantity
+      reach
       image
       wins
-      sigStrikes
-      category {
-        name
-      }
+      losses
+      winsByKO
+      winsBySubmission
+      nickName
+      odds
+      stance
+      height
+      weight
+      age
     }
   }
 `;
