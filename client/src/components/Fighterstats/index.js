@@ -68,3 +68,41 @@
 // }
 
 // export default CartItem;
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import {
+    GET_FIGHTERS
+} from '../../utils/queries';
+
+function FighterStats() {
+    const { loading, error, data } = useQuery(GET_FIGHTERS);
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
+  
+    return (
+      <div>
+        <h1>Fighter Stats</h1>
+        <ul>
+          {data.fighters.map(fighters => (
+            <li key={fighters._id}>
+              <h2>{fighters.name}</h2>
+              <p>Wins: {fighters.wins}</p>
+              <p>Losses: {fighters.losses}</p>
+              <img src={`/images/${fighters.image}`}></img>
+              <p>Wins by KO: {fighters.winsByKO}</p>
+              <p>Wins by submission: {fighters.winsBySubmission}</p>
+              <p>Nickname: {fighters.nickName}</p>
+              <p>Odds: {fighters.odds}</p>
+              <p>Stance: {fighters.stance}</p>
+              <p>Height: {fighters.height}</p>
+              <p>Weight: {fighters.weight}</p>
+              <p>Age: {fighters.age}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+export default FighterStats;

@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
-import CategoryMenu from "../components/CategoryMenu";
 import VersusCard from '../components/Matchups';
 import styled from "styled-components";
 
