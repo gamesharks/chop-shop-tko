@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
-import VersusCard from '../components/Matchups';
+import Matchups from '../components/Matchups/index';
 import styled from "styled-components";
 
 
@@ -25,7 +25,7 @@ const CardsWrapper = styled.div`
   
 `;
 
-const Matchups = () => {
+const MatchUps = () => {
   return (
     <div className="container">
       <h1>Upcoming Fights</h1>
@@ -34,11 +34,7 @@ const Matchups = () => {
       {/* {make component to show upcoming fights} */}
       <Wrapper>
       <CardsWrapper>
-      <VersusCard />
-      <VersusCard />
-      <VersusCard />
-      <VersusCard />
-      <VersusCard />
+      <Matchups />
     </CardsWrapper>
     </Wrapper>
       {/* make component for odds */}
@@ -46,4 +42,4 @@ const Matchups = () => {
   );
 };
 
-export default Matchups;
+export default MatchUps;
