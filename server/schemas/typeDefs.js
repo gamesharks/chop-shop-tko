@@ -57,7 +57,6 @@ type Betslip {
   type Query {
     matchups: [Matchup]
     fighters: [Fighters]
-    fights:  [Matchup]
     user: User
     betslip: [Betslip]
   }
