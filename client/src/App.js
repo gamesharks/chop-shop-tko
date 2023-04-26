@@ -17,7 +17,6 @@ import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 // import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
 
 
 const httpLink = createHttpLink({
@@ -66,10 +65,6 @@ function App() {
               <Route 
                 path="/fighterstats" 
                 element={<Fighterstats />} 
-              />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
               />
              
               <Route 

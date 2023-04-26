@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
-import CategoryMenu from "../components/CategoryMenu";
+import FighterStats from '../components/Fighterstats/index';
 
 
 const Fighterstats = () => {
@@ -12,7 +12,8 @@ const Fighterstats = () => {
       <h1>Fighter Stats Placeholder</h1>
       This will show specific stats for the fighter selected from a dropdown
       {/* {make component to provide a drop down selection of fighters} */}
-      {/* after selection if will populate the detailed figther specific stats */}
+      <h1>Fighter Stats Page</h1>
+      <FighterStats />
     </div>
   );
 };
