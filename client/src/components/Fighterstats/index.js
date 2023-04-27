@@ -109,57 +109,114 @@
 //   }
 
 // export default FighterStats;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! previous code 4.26.23
+// import React, { useState } from 'react';
+// import './fighterstats.css';
+// import { useQuery } from '@apollo/client';
+// import { GET_FIGHTERS } from '../../utils/queries';
+
+// function FighterStats() {
+//   const { loading, error, data } = useQuery(GET_FIGHTERS);
+//   const [expandedFighterId, setExpandedFighterId] = useState(null);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error: {error.message}</p>;
+
+//   const toggleExpanded = (id) => {
+//     if (id === expandedFighterId) {
+//       setExpandedFighterId(null);
+//     } else {
+//       setExpandedFighterId(id);
+//     }
+//   };
+
+//   return (
+//     <div className="fighter-grid">
+//       {data.fighters.map((fighter) => (
+//         <div key={fighter._id} className="fighter-card">
+//           <img
+//             src={`/images/${fighter.image}`}
+//             alt={fighter.name}
+//             className="fighter-image"
+//             onClick={() => toggleExpanded(fighter._id)}
+//           />
+//           {expandedFighterId === fighter._id && (
+//             <div className="fighter-details">
+//               <h2>{fighter.name}</h2>
+//               <p>Wins: {fighter.wins}</p>
+//               <p>Losses: {fighter.losses}</p>
+//               <p>Wins by KO: {fighter.winsByKO}</p>
+//               <p>Wins by submission: {fighter.winsBySubmission}</p>
+//               <p>Nickname: {fighter.nickName}</p>
+//               <p>Odds: {fighter.odds}</p>
+//               <p>Stance: {fighter.stance}</p>
+//               <p>Height: {fighter.height}</p>
+//               <p>Weight: {fighter.weight}</p>
+//               <p>Age: {fighter.age}</p>
+//             </div>
+//           )}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default FighterStats;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! end previous code 4.26.23
+
+
 
 import React, { useState } from 'react';
-import './fighterstats.css';
 import { useQuery } from '@apollo/client';
-import { GET_FIGHTERS } from '../../utils/queries';
+import {
+    GET_FIGHTERS
+} from '../../utils/queries';
+
+import './fighterstats2.css';
 
 function FighterStats() {
-  const { loading, error, data } = useQuery(GET_FIGHTERS);
-  const [expandedFighterId, setExpandedFighterId] = useState(null);
+    
+  
+    const { loading, error, data } = useQuery(GET_FIGHTERS);
+    const [expanded, setExpanded] = useState({});
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const toggleExpanded = (id) => {
-    if (id === expandedFighterId) {
-      setExpandedFighterId(null);
-    } else {
-      setExpandedFighterId(id);
+    const toggleExpanded = (fighterId) => {
+        setExpanded(prevExpanded => ({
+            ...prevExpanded,
+            [fighterId]: !prevExpanded[fighterId]
+        }));
     }
-  };
-
-  return (
-    <div className="fighter-grid">
-      {data.fighters.map((fighter) => (
-        <div key={fighter._id} className="fighter-card">
-          <img
-            src={`/images/${fighter.image}`}
-            alt={fighter.name}
-            className="fighter-image"
-            onClick={() => toggleExpanded(fighter._id)}
-          />
-          {expandedFighterId === fighter._id && (
-            <div className="fighter-details">
-              <h2>{fighter.name}</h2>
-              <p>Wins: {fighter.wins}</p>
-              <p>Losses: {fighter.losses}</p>
-              <p>Wins by KO: {fighter.winsByKO}</p>
-              <p>Wins by submission: {fighter.winsBySubmission}</p>
-              <p>Nickname: {fighter.nickName}</p>
-              <p>Odds: {fighter.odds}</p>
-              <p>Stance: {fighter.stance}</p>
-              <p>Height: {fighter.height}</p>
-              <p>Weight: {fighter.weight}</p>
-              <p>Age: {fighter.age}</p>
-            </div>
-          )}
+  
+    return (
+        <div className="fighter-stats-container">
+            {data.fighters.map(fighter => (
+                <div className="fighter-card" key={fighter._id}>
+                    <div className="fighter-header" onClick={() => toggleExpanded(fighter._id)}>
+                        
+                        <img src={`/images/${fighter.image}`} alt={fighter.name} />
+                        <h2>{fighter.name}</h2>
+                    </div>
+                    {expanded[fighter._id] && (
+                        <div className="fighter-details">
+                            <p>Wins: {fighter.wins}</p>
+                            <p>Losses: {fighter.losses}</p>
+                            <p>Wins by KO: {fighter.winsByKO}</p>
+                            <p>Wins by submission: {fighter.winsBySubmission}</p>
+                            <p>Nickname: {fighter.nickName}</p>
+                            <p>Odds: {fighter.odds}</p>
+                            <p>Stance: {fighter.stance}</p>
+                            <p>Height: {fighter.height}</p>
+                            <p>Weight: {fighter.weight}</p>
+                            <p>Age: {fighter.age}</p>
+                        </div>
+                    )}
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 }
 
 export default FighterStats;
-

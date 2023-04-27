@@ -6,6 +6,7 @@
   
   .fighter-card {
     position: relative;
+  
   }
   
   .fighter-image {
@@ -29,7 +30,9 @@
     align-items: center;
   }
   
+  
   .fighter-details h2 {
     margin-bottom: 10px;
+    
   }
   
