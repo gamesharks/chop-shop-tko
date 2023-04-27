@@ -16,6 +16,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
+import Profile from './pages/Profile';
 // import Success from './pages/Success';
 
 
@@ -66,7 +67,14 @@ function App() {
                 path="/fighterstats" 
                 element={<Fighterstats />} 
               />
-             
+             <Route 
+                path="/me" 
+                element={<Profile />} 
+              />
+                <Route 
+                path="/profile/:firstName" 
+                element={<Profile />} 
+              />
               <Route 
                 path="*" 
                 element={<NoMatch />} 

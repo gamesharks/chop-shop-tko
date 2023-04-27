@@ -55,10 +55,13 @@ type Betslip {
   }
 
   type Query {
+    user(firstName: String!): User
     matchups: [Matchup]
     fighters: [Fighters]
-    user: User
+    me: User
     betslip: [Betslip]
+    users: [User]
+    
   }
 
   type Mutation {
