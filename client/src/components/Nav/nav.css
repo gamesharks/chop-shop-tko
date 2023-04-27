@@ -1,6 +1,7 @@
 .navActive {
         background: linear-gradient(to right, red, black, red);
         border-radius: 2px;
+        list-style-type: none;
         
     
 }
