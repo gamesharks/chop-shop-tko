@@ -4,6 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find()
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('thoughts');
+    },
     fighters: async () => {
       return await Fighters.find();
     },
@@ -11,12 +17,9 @@ const resolvers = {
 
       return await Matchup.find().populate('fighters');
     },
-    user: async (parent, args, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate('betslips').populate('friends');
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
         return user;
       }
 

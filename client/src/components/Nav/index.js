@@ -15,9 +15,9 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className={`mx-1 ${activeTab === "/orderHistory" ? "navActive" : ""}`}>
-            <Link to="/orderHistory" onClick={() => handleTabClick("/orderHistory")}>
-              Order History
+          <li className={`mx-1 ${activeTab === "profile" ? "navActive" : ""}`}>
+            <Link to="/profile" onClick={() => handleTabClick("/profile")}>
+              Profile
             </Link>
           </li>
           <li className="mx-1">

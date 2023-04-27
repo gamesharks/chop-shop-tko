@@ -48,33 +48,6 @@ export const GET_FIGHTERS = gql`
   }
 `;
 
-export const GET_FIGHTS = gql`
-  query getFights {
-    fights {
-      _id
-      fightName
-      fightDate
-      isActive
-      fighters {
-        _id
-        name
-        reach
-        image
-        wins
-        losses
-        winsByKO
-        winsBySubmission
-        nickName
-        odds
-        stance
-        height
-        weight
-        age
-      }
-    }
-  }
-`;
-
 export const GET_USER = gql`
   query getUser {
     user {
@@ -82,11 +55,6 @@ export const GET_USER = gql`
       firstName
       lastName
       email
-      fights {
-        _id
-        fightName
-        fightDate
-      }
       betSlip {
         _id
         waiverAmount
@@ -95,7 +63,19 @@ export const GET_USER = gql`
       }
       friends {
         _id
+        name
       }
+    }
+  }
+`;
+
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      firstName
+      email
     }
   }
 `;
