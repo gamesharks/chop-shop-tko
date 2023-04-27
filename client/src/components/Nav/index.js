@@ -49,10 +49,12 @@ function Nav() {
   return (
     <header className="flex-row px-1">
       <h1>
-        <Link to="/">
-          <span role="img" aria-label="boxing glove">🥊</span>
-          Chop-Shop TKO
-        </Link>
+        <li className={`mx-1 ${activeTab === "/" ? "navActive" : ""}`}>
+          <Link to="/" onClick={() => handleTabClick("/")}>
+            <span role="img" aria-label="boxing glove">🥊</span>
+            Chop-Shop TKO
+          </Link>
+        </li>
       </h1>
 
       <ul className="flex-row px-1">
