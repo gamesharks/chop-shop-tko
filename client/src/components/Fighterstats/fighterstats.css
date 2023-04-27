@@ -1,0 +1,38 @@
+.fighter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .fighter-card {
+    position: relative;
+  
+  }
+  
+  .fighter-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .fighter-details {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .fighter-details h2 {
+    margin-bottom: 10px;
+    
+  }
+  

@@ -143,6 +143,9 @@
 
 import React from "react";
 import styled from "styled-components";
+import { useQuery } from '@apollo/client';
+import { GET_MATCHUPS } from '../../utils/queries';
+
 
 const CardWrapper = styled.div`
   display: flex;
@@ -191,29 +194,59 @@ const PlaceholderFighter = styled.div`
   align-items: center;
 `;
 
-const VersusCard = () => {
-  return (
-    <CardWrapper>
-      <FighterWrapper>
-        {/* v-fighter name -v */}
-        <FighterName>Placeholder Fighter</FighterName>
-        <PlaceholderFighter>
-          {/* v-fighter image here-v */}
-          <span>PF</span>
-          {/* v-odds here-v  */}
-        <Odds>+120</Odds>
-        </PlaceholderFighter>
-      </FighterWrapper>
-      <Versus>vs</Versus>
-      <FighterWrapper>
-        <FighterName>Placeholder Fighter</FighterName>
-        <PlaceholderFighter>
-          <span>PF</span>
-          <Odds>-120</Odds>
-        </PlaceholderFighter>
-      </FighterWrapper>
-    </CardWrapper>
-  );
-};
+function Matchups() {
+  const { loading, error, data } = useQuery(GET_MATCHUPS);
 
-export default VersusCard;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+// const VersusCard = () => {
+//   return (
+//     <CardWrapper>
+//       <FighterWrapper>
+//         {/* v-fighters name -v */}
+//         <FighterName>{matchup.fightName}</FighterName>
+//         <PlaceholderFighter>
+//           {/* v-fighters image here-v */}
+//           <span>PF</span>
+//           {/* v-odds here-v  */}
+//         <Odds>+120</Odds>
+//         </PlaceholderFighter>
+//       </FighterWrapper>
+//       <Versus>vs</Versus>
+//       <FighterWrapper>
+//         <FighterName>Placeholder Fighter</FighterName>
+//         <PlaceholderFighter>
+//           <span>PF</span>
+//           <Odds>-120</Odds>
+//         </PlaceholderFighter>
+//       </FighterWrapper>
+//     </CardWrapper>
+//     )};
+// };
+
+return (
+  <div>
+    <h2>Matchups</h2>
+    <ul>
+      {data.matchups.map((matchups) => (
+        <li key={matchups._id}>
+          <FighterName>{matchups.fightName}</FighterName>
+          <ul>
+            {matchups.fighters.map((fighters) => (
+              <li key={fighters._id}>
+                <PlaceholderFighter>
+                <img src={`/images/${fighters.image}`} />
+                <p>Odds: {fighters.odds}</p>
+                </PlaceholderFighter>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+}
+
+export default Matchups;
