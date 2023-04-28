@@ -16,7 +16,7 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className={`mx-1 ${activeTab === "profile" ? "navActive" : ""}`}>
-            <Link to="/profile" onClick={() => handleTabClick("/profile")}>
+            <Link to="/me" onClick={() => handleTabClick("/profile")}>
               Profile
             </Link>
           </li>

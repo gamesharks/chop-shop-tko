@@ -55,7 +55,7 @@ type Betslip {
   }
 
   type Query {
-    user(firstName: String!): User
+    user(email: String!): User
     matchups: [Matchup]
     fighters: [Fighters]
     me: User

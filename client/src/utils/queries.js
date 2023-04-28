@@ -48,23 +48,12 @@ export const GET_FIGHTERS = gql`
   }
 `;
 
-export const GET_USER = gql`
-  query getUser {
-    user {
+export const QUERY_USER = gql`
+  query user($email: String!) {
+    user(email: $email) {
       _id
       firstName
-      lastName
       email
-      betSlip {
-        _id
-        waiverAmount
-        waiverDate
-        isActive
-      }
-      friends {
-        _id
-        name
-      }
     }
   }
 `;
@@ -79,6 +68,7 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
 
 export const GET_BETSLIP = gql`
   query getBetslip {
