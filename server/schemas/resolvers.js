@@ -7,8 +7,8 @@ const resolvers = {
     users: async () => {
       return User.find()
     },
-    user: async (parent, { firstName }) => {
-      return User.findOne({ firstName }).populate('betslips');
+    user: async (parent, { email }) => {
+      return User.findOne({ email })
     },
     fighters: async () => {
       return await Fighters.find();
@@ -19,7 +19,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate('betslips').populate('friends');
+        const user = await User.findById(context.user._id);
         return user;
       }
 

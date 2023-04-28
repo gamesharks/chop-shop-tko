@@ -29,10 +29,6 @@ const userSchema = new Schema({
     type: Number,
     defaultValue: 1000
   },
-  betSlip: [{
-    type: Schema.Types.ObjectId,
-    ref:'betslips'
-  }],
   friends: [{
     type: Schema.Types.ObjectId,
     ref:'friends'

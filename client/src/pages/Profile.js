@@ -2,27 +2,28 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import { GET_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { firstName: userParam } = useParams();
+  const { email: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? GET_USER : QUERY_ME, {
-    variables: { firstName: userParam },
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { email: userParam },
   });
 
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.firstName === userParam) {
+  if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Navigate to="/me" />;
   }
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!user?.firstName) {
+  if (!user?.email) {
     return (
       <h4>
         You need to be logged in to see this. Use the navigation links above to
@@ -35,16 +36,16 @@ const Profile = () => {
     <div>
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.firstName}'s` : 'your'} profile.
-        </h2>
 
+          Welcome, {user.firstName}
+        </h2>
 
         {!userParam && (
           <div
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
           >
-            
+
           </div>
         )}
       </div>
