@@ -151,6 +151,34 @@ db.once('open', async () => {
     password: 'password12345',
   });
 
+  const user2 = await User.create({
+    firstName: 'Kevin',
+    lastName: 'Hernandez',
+    email: 'kevin@testmail.com',
+    password: '12345',
+  });
+
+  const user3 = await User.create({
+    firstName: 'Adrian',
+    lastName: 'Bruno',
+    email: 'adrian@testmail.com',
+    password: '12345',
+  });
+
+  const user4 = await User.create({
+    firstName: 'Craig',
+    lastName: 'Reese',
+    email: 'craig@testmail.com',
+    password: '12345',
+  });
+
+  const user5 = await User.create({
+    firstName: 'Gerardo',
+    lastName: 'Ormeno',
+    email: 'gerardo@testmail.com',
+    password: '12345',
+  });
+
   await User.create({
     firstName: 'Elijah',
     lastName: 'Holt',
