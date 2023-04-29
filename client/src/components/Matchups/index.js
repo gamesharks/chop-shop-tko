@@ -39,7 +39,7 @@ function Matchups() {
             <div className="matchup-wrapper">
               <div className="fighter-block">
                 <BetButton />
-                <img src={`/images/${matchup.fighters[0].image}`} />
+                <img src={`/images/${matchup.fighters[0].image}`} alt="Fighter A" />
                 <div className="fighter-name">{matchup.fighters[0].name}</div> 
                 <div className="fighter-odds">Odds: {matchup.fighters[0].odds}</div>
               </div>
@@ -55,7 +55,7 @@ function Matchups() {
               
               <div className="fighter-block">
                 <BetButton />
-                <img src={`/images/${matchup.fighters[1].image}`} />
+                <img src={`/images/${matchup.fighters[1].image}`} alt="Fighter B" />
                 <div className="fighter-name">{matchup.fighters[1].name}</div>
                 <div className="fighter-odds">Odds: {matchup.fighters[1].odds}</div>
               </div>

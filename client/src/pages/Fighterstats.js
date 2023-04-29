@@ -1,8 +1,8 @@
 
 import React from "react";
-import { Link } from 'react-router-dom';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+// import { Link } from 'react-router-dom';
+// import { LOGIN } from '../utils/mutations';
+// import Auth from '../utils/auth';
 import backgroundImage2 from '../assets/images/background02.jpg'
 import FighterStats from '../components/Fighterstats/index';
 

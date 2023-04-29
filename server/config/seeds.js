@@ -1,3 +1,4 @@
+require('dotenv').config()
 const db = require('./connection');
 const { User, Category, Matchup, Fighters } = require('../models');
 
