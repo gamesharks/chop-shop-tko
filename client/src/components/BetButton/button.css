@@ -1,0 +1,14 @@
+.betButton {
+  background: rgb(2, 182, 2);
+  margin-bottom: 4px;
+  animation: betButton-hover 0.6s linear infinite alternate;
+}
+
+@keyframes betButton-hover {
+  0% {
+    background-color: #00ff00; 
+  }
+  100% {
+    background-color: #007f00; 
+  }
+}
