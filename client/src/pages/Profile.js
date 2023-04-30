@@ -39,7 +39,21 @@ const Profile = () => {
 
           Welcome, {user.firstName}
         </h2>
-
+        <div className="matchups-container">
+      <h2>bets</h2>
+      <ul>
+        {user.betslips.map((bet) => (
+          <div key={bet._id}>
+            
+              amount: {bet.waiverAmount}
+              date:                
+                  {new Date(parseInt(bet.waiverDate)).toLocaleDateString()}
+                
+            
+            </div>
+        ))}
+      </ul>
+    </div>
         {!userParam && (
           <div
             className="col-12 col-md-10 mb-3 p-3"

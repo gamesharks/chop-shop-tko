@@ -54,6 +54,10 @@ export const QUERY_USER = gql`
       _id
       firstName
       email
+      betslips {
+        waiverAmount,
+        waiverDate
+      }
     }
   }
 `;
@@ -65,6 +69,11 @@ export const QUERY_ME = gql`
       _id
       firstName
       email
+      betslips {
+        waiverAmount,
+        waiverDate
+      }
+
     }
   }
 `;

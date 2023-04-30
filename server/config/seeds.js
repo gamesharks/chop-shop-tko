@@ -173,6 +173,11 @@ db.once('open', async () => {
     lastName: 'Reese',
     email: 'craig@testmail.com',
     password: '12345',
+    betslips: [
+      {
+        waiverAmount: 125,
+      }
+    ]
   });
 
   const user5 = await User.create({
