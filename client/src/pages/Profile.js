@@ -1,70 +1,23 @@
-import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import Profile from '../components/Profile/index';
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-
-import Auth from '../utils/auth';
-
-const Profile = () => {
-  const { email: userParam } = useParams();
-
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { email: userParam },
-  });
-
-  const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
-    return <Navigate to="/me" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?.email) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
+const ProfileBackground = () => {
 
   return (
-    <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+    // can replace this with an actual image if needed later
+    <div className="" style={{
+      background: 'black',
+      width: '100vw',
+      minHeight: '100vh',
+    }}>
 
-          Welcome, {user.firstName}
-        </h2>
-        <div className="matchups-container">
-      <h2>bets</h2>
-      <ul>
-        {user.betslips.map((bet) => (
-          <div key={bet._id}>
-            
-              amount: {bet.waiverAmount}
-              date:                
-                  {new Date(parseInt(bet.waiverDate)).toLocaleDateString()}
-                
-            
-            </div>
-        ))}
-      </ul>
-    </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: '1px dotted #1a1a1a' }}
-          >
+<div className="container">
+        <h1>Profile</h1>
+          <Profile /> 
 
-          </div>
-        )}
-      </div>
-    </div>
+        </div>
+  </div>
   );
 };
 
-export default Profile;
+export default ProfileBackground;       
