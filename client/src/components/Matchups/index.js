@@ -1,6 +1,6 @@
 
 
-import React, {useState} from "react";
+// import React, {useState} from "react";
 // import styled from "styled-components";
 import VersesImage from '../../assets/images/vs04.jpg';
 import './matchups.css';
@@ -12,15 +12,15 @@ import { GET_MATCHUPS } from '../../utils/queries';
 function Matchups() {
   
   
-    const [isHovering, setIsHovering] = useState(false); 
+    //  const [isHovering, setIsHovering] = useState(false); 
     
-    const handleMouseEnter = () => {
-      setIsHovering(true);
-    };
+    // const handleMouseEnter = () => {
+    //   setIsHovering(true);
+    // };
 
-    const handleMouseLeave =() => {
-      setIsHovering(false);
-    };
+    // const handleMouseLeave =() => {
+    //   setIsHovering(false);
+    // };
 
 
   
