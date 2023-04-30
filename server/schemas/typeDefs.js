@@ -41,7 +41,7 @@ type Betslip {
     lastName: String
     email: String
     fights: [Matchup]
-    betSlip: [Betslip]
+    betslips: [Betslip]
     friends: [Friends]
   }
 
