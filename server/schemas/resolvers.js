@@ -42,6 +42,23 @@ const resolvers = {
 
       return { token, user };
     },
+    placeBet: async (parent, args, context) => {
+      console.log(context);
+      if (context.user) {
+        const bet = new Betslip();
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { betslips: bet } });
+
+        return bet;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
+
+
+
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
