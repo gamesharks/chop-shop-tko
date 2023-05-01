@@ -7,6 +7,7 @@
     
 }
 
+
 .wrapper-title {
     background: rgb(241, 2, 2);
     padding-top: 1px;
@@ -29,6 +30,14 @@ font-size: 20px;
 font-weight:bold;
 }
 
+.balance {
+    display:flex;
+    
+    
+    width:50%;
+    background: red;
+    
+}
 
 
 

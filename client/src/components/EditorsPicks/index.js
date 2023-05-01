@@ -12,7 +12,8 @@ const ParagraphSection = ({ name, image, text }) => {
       <img src={image} alt={`${name}'s profile`} style={{ marginBottom: '6rem', marginRight: '1rem', borderRadius: '50%', width: '70px', height: '70px' }} />
       <div>
         <h4 style={{ margin: 0 }}>{name}</h4>
-        <p style={{ margin: 0 }}>{text}</p>
+        <p style={{ margin: 0}}>{text}</p>
+        
       </div>
     </div>
   );
