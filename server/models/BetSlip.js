@@ -19,19 +19,18 @@ const betslipSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'matchups',
   },
-  User: [
+  fighter: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'user'
+      type: String
     }
   ],
 });
 betslipSchema
   .pre('find', function() {
-    this.populate('matchup');
+    this.populate('matchups');
   })
   .pre('findOne', function() {
-    this.populate('matchup');
+    this.populate('matchups');
   });
 const Betslip = mongoose.model('betslips', betslipSchema);
 

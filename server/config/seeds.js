@@ -238,7 +238,8 @@ const user4 = await User.create({
   betslips: [
     {
       waiverAmount: 125,
-      matchup: matchups[1]
+      matchup: matchups[1]._id,
+      fighter: matchups[1].fighters[0].name,
     }
   ],
   accountBalance: 900
