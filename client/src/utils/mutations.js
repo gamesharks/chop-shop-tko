@@ -34,12 +34,16 @@ export const ADD_USER = gql`
 `;
 
 export const PLACE_BET = gql`
-mutation placeBet($waiverAmount: Float! $matchup: ID) {
+mutation placeBet($waiverAmount: Float! $matchup: ID, $fighter: String, $odds: Float!) {
   placeBet(
     waiverAmount: $waiverAmount
     matchup: $matchup
+    fighter: $fighter
+    odds: $odds
     ) {
     waiverAmount
+    fighter
+    odds
     isActive
   } 
 }

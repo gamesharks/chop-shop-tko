@@ -2,9 +2,12 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const Matchup = require('./Matchup')
-
+const Fighter = require('./Fighters')
 const betslipSchema = new Schema({
   waiverAmount: {
+    type: Number
+  },
+  odds: {
     type: Number
   },
   waiverDate: {
@@ -19,11 +22,9 @@ const betslipSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'matchups',
   },
-  fighter: [
-    {
-      type: String
-    }
-  ],
+  fighter: {
+    type: String
+  }
 });
 betslipSchema
   .pre('find', function() {

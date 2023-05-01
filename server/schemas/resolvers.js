@@ -15,6 +15,9 @@ const resolvers = {
         }
       })
     },
+    betslips: async () => {
+      return Betslip.find().populate('matchups')
+    },
     user: async (parent, { email }) => {
       return User.findOne({ email }).populate({
         path: 'betslips',

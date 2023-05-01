@@ -56,6 +56,7 @@ const Profile = () => {
               Date: &nbsp;  &nbsp; &nbsp;             
                   {new Date(parseInt(bet.waiverDate)).toLocaleDateString()}
               Bet placed on: {bet.fighter}
+              Odds: {bet.odds}
               </div>
             </div>
         ))}

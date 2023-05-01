@@ -58,6 +58,8 @@ export const QUERY_USER = gql`
       betslips {
         waiverAmount,
         waiverDate
+        fighter
+        odds
       }
     }
   }
@@ -74,6 +76,8 @@ export const QUERY_ME = gql`
       betslips {
         waiverAmount,
         waiverDate
+        fighter
+        odds
       }
 
     }
