@@ -53,8 +53,8 @@ This site can be used as a reference for building a sports betting website.
   Craig Reese(Frontend Dev), Adrian Bruno (Frontend Dev), Gerardo Ormeno (Backend Dev), Kevin Hernandez (Backend Dev),
 
  ## Screen Shot
- ![Screenshot 1](https://github.com/gamesharks/chop-shop-tko/blob/chop-shop-tko/client/public/images/sshot01.jpg)
-![Screenshot 2](https://github.com/gamesharks/chop-shop-tko/blob/chop-shop-tko/client/public/images/sshot02.jpg)
+ ![Screenshot 1](https://github.com/gamesharks/chop-shop-tko/blob/main/client/public/images/sshot01.jpg?raw=true)
+![Screenshot 2](https://github.com/gamesharks/chop-shop-tko/blob/main/client/public/images/sshot02.jpg?raw=true)
 
 
 
