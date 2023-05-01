@@ -75,7 +75,7 @@ const Profile = () => {
       </div>
 
 
-            {/* Gerardos starts */}
+    {/* !!!!!!!!!!!!!!!!!!! Gerardos code goes starts here !!!!!!!!!!!!!!!!*/}
             {/* Friend Selector starts here */}
             <br></br> 
          <div className='profile-wrapper'>

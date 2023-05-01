@@ -18,9 +18,7 @@ const MatchUps = () => {
       <div className="container">
         <h1>Upcoming Fights</h1>
           <Matchups />
-    
-            {/* make component Bet/Wager Button */}
-    </div>
+      </div>
   </div>
   );
 };
