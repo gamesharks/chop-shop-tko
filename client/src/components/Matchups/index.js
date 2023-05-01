@@ -38,7 +38,7 @@ function Matchups() {
           <li key={matchup._id}>
             <div className="matchup-wrapper">
               <div className="fighter-block">
-                <BetButton />
+                <BetButton matchup={matchup}/>
                 <img src={`/images/${matchup.fighters[0].image}`} alt="Fighter A" />
                 <div className="fighter-name">{matchup.fighters[0].name}</div> 
                 <div className="fighter-odds">Odds: {matchup.fighters[0].odds}</div>

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const Matchup = require('./Matchup')
 
 const betslipSchema = new Schema({
   waiverAmount: {
@@ -14,6 +15,10 @@ const betslipSchema = new Schema({
     type: Boolean,
     default: true
   },
+  matchup: {
+    type: Schema.Types.ObjectId,
+    ref: 'matchups',
+  },
   User: [
     {
       type: Schema.Types.ObjectId,
@@ -21,7 +26,13 @@ const betslipSchema = new Schema({
     }
   ],
 });
-
+betslipSchema
+  .pre('find', function() {
+    this.populate('matchup');
+  })
+  .pre('findOne', function() {
+    this.populate('matchup');
+  });
 const Betslip = mongoose.model('betslips', betslipSchema);
 
 module.exports = Betslip;

@@ -5,10 +5,23 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find()
+      return User.find().populate({
+        path: 'betslips',
+        populate: {
+          path:'matchups',
+          populate: 'fighters'
+        }
+      })
     },
     user: async (parent, { email }) => {
-      return User.findOne({ email }).populate('betslips')
+      return User.findOne({ email }).populate({
+        path: 'betslips',
+        populate: 'matchup'
+      },
+      {
+        path: 'betslips.matchup',
+        populate: 'fighters'
+      })
     },
     fighters: async () => {
       return await Fighters.find();
@@ -47,7 +60,7 @@ const resolvers = {
         const bet = new Betslip(args);
 
         await User.findByIdAndUpdate(context.user._id, { $push: { betslips: bet } });
-
+        await User.findByIdAndUpdate(context.user._id, { $inc:  { accountBalance: -100 }} );
         return bet;
       }
       throw new AuthenticationError('Not logged in');
