@@ -44,7 +44,7 @@ Our website is for MMA aficionados who want to compete with their friends to det
  ## Usage 
 This site can be used as a reference for building a sports betting website.
 
-![Main Page](../chop-shop-tko/client/public/images/homepage ex.JPG)
+![Main Page](https://github.com/gamesharks/chop-shop-tko/blob/main/client/public/images/homepage%20ex.JPG?raw-true)
 
  ## License 
   MIT License
