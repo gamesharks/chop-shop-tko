@@ -52,10 +52,10 @@ const Profile = () => {
         {user.betslips.map((bet) => (
           <div key={bet._id}>
               <div className="bets">
-              Amount: ${bet.waiverAmount} <br></br>
-              Date: &nbsp;  &nbsp; &nbsp;             
+              Date: &nbsp;        
                   {new Date(parseInt(bet.waiverDate)).toLocaleDateString()}
-              Bet placed on: {bet.fighter}
+                  &nbsp; | Amount: ${bet.waiverAmount} &nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;Bet placed on: {bet.fighter}
               </div>
             </div>
         ))}
@@ -75,7 +75,7 @@ const Profile = () => {
       </div>
 
 
-            {/* Gerardos starts */}
+    {/* !!!!!!!!!!!!!!!!!!! Gerardos code goes starts here !!!!!!!!!!!!!!!!*/}
             {/* Friend Selector starts here */}
             <br></br> 
          <div className='profile-wrapper'>
