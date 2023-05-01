@@ -34,7 +34,7 @@ const Profile = () => {
       </h4>
     );
   }
-
+// original bet slip
   return (
     <div>
       <h2> Welcome, {user.firstName} </h2>
@@ -58,7 +58,8 @@ const Profile = () => {
               </div>
             </div>
         ))}
-      </ul>
+      </ul>  
+                 
     </div>
         {!userParam && (
           <div
@@ -66,10 +67,42 @@ const Profile = () => {
             style={{ border: '1px solid #1a1a1a' }}
           >
 
+
+
           </div>
-        )}
+        )} 
       </div>
-    </div>
+
+
+            {/* Gerardos starts */}
+            {/* Friend Selector starts here */}
+            <br></br> 
+         <div className='profile-wrapper'>
+      {/* <div className="flex-row justify-center mb-3"> */}
+        <div className='wrapper-title'>
+          <h3 className="">
+          Friend History
+          </h3>
+        </div>
+        <div className="bets-container">
+      {/* <h2>bets</h2> */}
+      <ul>
+        {user.betslips.map((bet) => (
+          <div key={bet._id}>
+              <div className="bets">
+              Amount: ${bet.waiverAmount} <br></br>
+              Date: &nbsp;  &nbsp; &nbsp;             
+                  {new Date(parseInt(bet.waiverDate)).toLocaleDateString()}
+              </div>
+            </div>
+        ))}
+      </ul>  
+                 
+    </div></div>
+
+    </div> 
+
+    
   );
 };
 
