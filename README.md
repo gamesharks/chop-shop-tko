@@ -35,14 +35,14 @@ Our website is for MMA aficionados who want to compete with their friends to det
 
 > npm i
 
-> npm run seedn
+> npm run seed
 
 > npm run develop
 
 > 
 
  ## Usage 
-This site can be used as a reference for building an sports betting website.
+This site can be used as a reference for building a sports betting website.
 
 ![Main Page]()
 
@@ -53,10 +53,13 @@ This site can be used as a reference for building an sports betting website.
   Craig Reese(Frontend Dev), Adrian Bruno (Frontend Dev), Gerardo Ormeno (Backend Dev), Kevin Hernandez (Backend Dev),
 
  ## Screen Shot
- ![Screenshot-page]()
+ ![Screenshot 1](chop-shop-tko/client/public/images/sshot01.jpg)
+![Screenshot 2](chop-shop-tko/client/public/images/sshot02.jpg)
+
+
 
  ## Repo Links
 
  [Chop Shop TKO link](https://github.com/gamesharks/chop-shop-tko)
 
- [Heroku Link]()
+ [Heroku Link](https://chop-shop-tko.herokuapp.com/)
