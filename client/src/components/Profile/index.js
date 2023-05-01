@@ -38,7 +38,7 @@ const Profile = () => {
   return (
     <div>
       <h2> Welcome, {user.firstName} </h2>
-      <h2> Balance {user.accountBalance} </h2>
+      <h2> Balance $ {user.accountBalance} </h2>
       <div className='profile-wrapper'>
       {/* <div className="flex-row justify-center mb-3"> */}
         <div className='wrapper-title'>
