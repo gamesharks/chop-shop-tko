@@ -6,7 +6,7 @@ function BetButton(props) {
   
     return (
       <button className='betButton' onClick={onClick}>
-        Place {fighterName} {bet} Bet
+        Bet $100
       </button>
     );
   }

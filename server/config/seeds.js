@@ -152,6 +152,7 @@ db.once('open', async () => {
     lastName: 'Washington',
     email: 'pamela@testmail.com',
     password: 'password12345',
+    accountBalance: 1000
   });
 
   const user2 = await User.create({
@@ -159,6 +160,7 @@ db.once('open', async () => {
     lastName: 'Hernandez',
     email: 'kevin@testmail.com',
     password: '12345',
+    accountBalance: 1000
   });
 
   const user3 = await User.create({
@@ -166,6 +168,7 @@ db.once('open', async () => {
     lastName: 'Bruno',
     email: 'adrian@testmail.com',
     password: '12345',
+    accountBalance: 1000
   });
 
   const user4 = await User.create({
@@ -177,7 +180,8 @@ db.once('open', async () => {
       {
         waiverAmount: 125,
       }
-    ]
+    ],
+    accountBalance: 1000
   });
 
   const user5 = await User.create({
@@ -185,6 +189,7 @@ db.once('open', async () => {
     lastName: 'Ormeno',
     email: 'gerardo@testmail.com',
     password: '12345',
+    accountBalance: 1000
   });
 
   await User.create({
@@ -192,7 +197,8 @@ db.once('open', async () => {
     lastName: 'Holt',
     email: 'eholt@testmail.com',
     password: 'password12345',
-    friends: [user1._id]
+    friends: [user1._id],
+    accountBalance: 1000
   });
 
   console.log('users seeded');

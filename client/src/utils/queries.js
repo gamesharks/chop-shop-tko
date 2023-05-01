@@ -54,6 +54,7 @@ export const QUERY_USER = gql`
       _id
       firstName
       email
+      accountBalance
       betslips {
         waiverAmount,
         waiverDate
@@ -69,6 +70,7 @@ export const QUERY_ME = gql`
       _id
       firstName
       email
+      accountBalance
       betslips {
         waiverAmount,
         waiverDate

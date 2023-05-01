@@ -12,6 +12,7 @@ type Matchup {
 }
 
 type Betslip {
+  _id: ID
   waiverAmount: Int
   waiverDate: String
   isActive: Boolean
@@ -40,9 +41,10 @@ type Betslip {
     firstName: String
     lastName: String
     email: String
-    fights: [Matchup]
+    accountBalance: Int
     betslips: [Betslip]
     friends: [Friends]
+    
   }
 
   type Auth {
@@ -68,6 +70,7 @@ type Betslip {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    placeBet: Betslip
   }
 `;
 

@@ -25,9 +25,9 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  balance: {
+  accountBalance: {
     type: Number,
-    defaultValue: 1000
+    default: 1000
   },
   friends: [{
     type: Schema.Types.ObjectId,
