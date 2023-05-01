@@ -38,7 +38,7 @@ function Matchups() {
           <li key={matchup._id}>
             <div className="matchup-wrapper">
               <div className="fighter-block">
-                <BetButton fighterId={matchup.fighters[0]._id} matchupId={matchup._id} />
+                <BetButton betOdds={matchup.fighters[0].odds} fighterName={matchup.fighters[0].name} matchupId={matchup._id} />
                 <img src={`/images/${matchup.fighters[0].image}`} alt="Fighter A" />
                 <div className="fighter-name">{matchup.fighters[0].name}</div> 
                 <div className="fighter-odds">Odds: {matchup.fighters[0].odds}</div>
@@ -54,7 +54,7 @@ function Matchups() {
               </div>
               
               <div className="fighter-block">
-                <BetButton fighterId={matchup.fighters[1]._id}/>
+                <BetButton betOdds={matchup.fighters[1].odds} fighterName={matchup.fighters[1].name} matchupId={matchup._id}/>
                 <img src={`/images/${matchup.fighters[1].image}`} alt="Fighter B" />
                 <div className="fighter-name">{matchup.fighters[1].name}</div>
                 <div className="fighter-odds">Odds: {matchup.fighters[1].odds}</div>

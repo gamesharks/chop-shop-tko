@@ -3,7 +3,7 @@ import './button.css';
 import { useMutation } from '@apollo/client'
 import { PLACE_BET } from '../../utils/mutations';
 
-function BetButton({matchupId, fighterId}) {
+function BetButton({matchupId, fighterName, betOdds}) {
 
 const [placeBet, { data }] = useMutation(PLACE_BET);
 
@@ -15,7 +15,8 @@ const handleBetSubmit = async () => {
       variables: {
     waiverAmount: 100,
     matchup: matchupId,
-    fighter: fighterId
+    fighter: fighterName,
+    odds: betOdds
       }
       
     })

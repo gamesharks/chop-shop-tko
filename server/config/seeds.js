@@ -239,7 +239,8 @@ const user4 = await User.create({
     {
       waiverAmount: 125,
       matchup: matchups[1]._id,
-      fighter: matchups[1].fighters[0].name,
+      fighter: 'aljamain sterling',
+      odds: -105
     }
   ],
   accountBalance: 900
