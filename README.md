@@ -44,7 +44,6 @@ Our website is for MMA aficionados who want to compete with their friends to det
  ## Usage 
 This site can be used as a reference for building a sports betting website.
 
-![Main Page]()
 
  ## License 
   MIT License
