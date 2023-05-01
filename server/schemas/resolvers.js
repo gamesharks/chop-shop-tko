@@ -8,8 +8,10 @@ const resolvers = {
       return User.find().populate({
         path: 'betslips',
         populate: {
-          path:'matchups',
-          populate: 'fighters'
+          path:'matchup',
+          populate: {
+            path: 'fighters'
+          }
         }
       })
     },

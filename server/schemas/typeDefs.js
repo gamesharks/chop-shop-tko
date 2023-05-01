@@ -17,6 +17,7 @@ type Betslip {
   waiverDate: String
   isActive: Boolean
   matchup: Matchup
+  fighter: Fighters
   User: [User]
 }
 

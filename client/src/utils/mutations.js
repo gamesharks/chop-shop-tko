@@ -34,7 +34,7 @@ export const ADD_USER = gql`
 `;
 
 export const PLACE_BET = gql`
-mutation placeBet($waiverAmount: Float! $matchup: [ID]) {
+mutation placeBet($waiverAmount: Float! $matchup: ID) {
   placeBet(
     waiverAmount: $waiverAmount
     matchup: $matchup
