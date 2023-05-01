@@ -152,7 +152,7 @@ db.once('open', async () => {
     lastName: 'Washington',
     email: 'pamela@testmail.com',
     password: 'password12345',
-    accountBalance: 1000
+    balance: 1000
   });
 
   const user2 = await User.create({
@@ -168,19 +168,6 @@ db.once('open', async () => {
     lastName: 'Bruno',
     email: 'adrian@testmail.com',
     password: '12345',
-    accountBalance: 1000
-  });
-
-  const user4 = await User.create({
-    firstName: 'Craig',
-    lastName: 'Reese',
-    email: 'craig@testmail.com',
-    password: '12345',
-    betslips: [
-      {
-        waiverAmount: 125,
-      }
-    ],
     accountBalance: 1000
   });
 
@@ -206,7 +193,7 @@ db.once('open', async () => {
 
   await Matchup.deleteMany();
 
-  await Matchup.insertMany([{
+  const matchups = await Matchup.insertMany([{
     fightDate: new Date('2023-04-22'),
     fightName: 'UFC Fight Night: Pavlovich vs. Blaydes', 
     fighters: [
@@ -243,6 +230,19 @@ db.once('open', async () => {
     odds: [fighters[6].odds,fighters[7].odds]
   }
 ]);
+const user4 = await User.create({
+  firstName: 'Craig',
+  lastName: 'Reese',
+  email: 'craig@testmail.com',
+  password: '12345',
+  betslips: [
+    {
+      waiverAmount: 125,
+      matchup: matchups[1]
+    }
+  ],
+  accountBalance: 900
+});
 
 console.log('matchups seeded')
   process.exit();
