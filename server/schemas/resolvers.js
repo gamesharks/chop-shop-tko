@@ -71,7 +71,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-
+    
 
 
 
@@ -98,7 +98,7 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
   }
 };
 
